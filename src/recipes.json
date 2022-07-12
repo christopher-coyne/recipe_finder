@@ -1,0 +1,20 @@
+[
+  {
+    "name": "chocolate chip cookies",
+    "ingredients": "1 cup butter, 1 cup white sugar, 1 cup brown sugar, 2 eggs, 2 teaspoons vanilla extract, 1 teaspoon baking soda",
+    "instructions": "preheat oven to 350 degrees. Then Cream together the butter, white sugar, and brown sugar until smooth. Beat in the eggs one at a time, then stir in the vanilla. Dissolve baking soda in hot water. Add to batter along with salt. Stir in flour, chocolate chips, and nuts. Drop by large spoonfuls onto ungreased pans.",
+    "difficulty": "beginner",
+    "cuisine": "american",
+    "type": "desert",
+    "user": "sam jones"
+  },
+  {
+    "name": "meatloaf",
+    "ingredients": "1.5 pounds ground beef, 1 egg, 1 onion chopped, 1 cup milk, 1 cup dried bread crumbs, salt and pepper, 2 tablespoons brown sugar, 2 tablespoons prepared mustard",
+    "instructions": "Preheat oven to 350 degrees F (175 degrees C). In a large bowl, combine the beef, egg, onion, milk and bread OR cracker crumbs. Season with salt and pepper to taste and place in a lightly greased 9x5-inch loaf pan, or form into a loaf and place in a lightly greased 9x13-inch baking dish. In a separate small bowl, combine the brown sugar, mustard and ketchup. Mix well and pour over the meatloaf.",
+    "difficulty": "advanced",
+    "cuisine": "american",
+    "type": "entree",
+    "user": "alex schwartz"
+  }
+]

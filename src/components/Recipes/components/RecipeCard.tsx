@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { recipeContext } from "../../../contexts/RecipesContext";
-import { StyledRecipe } from "./RecipeCard.style";
+import { BoldText, StyledRecipe, User, Content } from "./RecipeCard.style";
 import { Recipe } from "../../../types";
 
 type props = {
@@ -9,7 +9,18 @@ type props = {
 };
 
 const RecipeCard = ({ recipe }: props) => {
-  return <StyledRecipe>{recipe.name}</StyledRecipe>;
+  return (
+    <StyledRecipe>
+      <Content>
+        <h2>{recipe.name}</h2>
+        <p>
+          <BoldText>Ingredients:</BoldText> {recipe.ingredients}
+        </p>
+        <p>{recipe.instructions}</p>
+      </Content>
+      <User>{recipe.user}</User>
+    </StyledRecipe>
+  );
 };
 
 export default RecipeCard;

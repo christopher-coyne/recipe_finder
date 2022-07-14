@@ -7,22 +7,31 @@ import {
 } from "./FilterOptions.style";
 import types from "../../../../FilterOptionTypes";
 
-const foodTypeNames = Object.keys(types);
+type Props = {
+  openFilter: boolean;
+  addFilter: (filter: string) => void;
+};
 
-const FilterOptions = () => {
+const FilterOptions = ({ openFilter, addFilter }: Props) => {
   return (
-    <Container>
-      {foodTypeNames.map((foodType) => {
-        return (
-          <OptionContainer>
-            <TypeName> {foodType}</TypeName>
-            {types.cuisine.map((type) => (
-              <TypeOption>{type}</TypeOption>
-            ))}
-          </OptionContainer>
-        );
-      })}
-    </Container>
+    <>
+      {openFilter && (
+        <Container>
+          {Object.keys(types).map((filterType) => {
+            return (
+              <OptionContainer>
+                <TypeName> {filterType}</TypeName>
+                {types[filterType].map((type: string) => (
+                  <TypeOption onClick={() => addFilter(type)}>
+                    {type}
+                  </TypeOption>
+                ))}
+              </OptionContainer>
+            );
+          })}
+        </Container>
+      )}
+    </>
   );
 };
 

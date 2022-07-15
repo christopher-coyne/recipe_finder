@@ -4,7 +4,7 @@ type types = {
   food: string[];
 };
 
-const filterTypes: types = {
+const filterTypes: any = {
   cuisine: ["asian", "american", "italian", "mexican"],
   difficulty: ["beginner", "advanced"],
   food: ["breakfast", "desert", "appetizer", "entree"],

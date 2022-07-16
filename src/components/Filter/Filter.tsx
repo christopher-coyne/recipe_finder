@@ -1,22 +1,28 @@
-import React from "react";
+import { useContext } from "react";
 import { Container } from "./Filter.style";
 import { useState } from "react";
 import FilterOptions from "./components/FilterOptions/FilterOptions";
 import filterOptionTypes from "../../FilterOptionTypes";
+import {
+  filtersContext,
+  setFiltersContext,
+} from "../../contexts/FiltersContext";
 
 const Filter = () => {
+  const filters: string[] = useContext(filtersContext);
+  const setFilters = useContext(setFiltersContext);
   const [openFilter, setOpenFilter] = useState(false);
-  const [selectedFilters, setSelectedFilters] = useState<string[]>([]);
 
   const addFilter = (filter: string) => {
+    console.log("adding filter...");
     const filtersOfSameType = Object.keys(filterOptionTypes).filter((key) =>
       filterOptionTypes[key].includes(filter)
     )[0];
 
-    const newSelectedFilters = [...selectedFilters];
+    const newSelectedFilters = [...filters];
     let changed = false;
     let ind = 0;
-    for (const f of selectedFilters) {
+    for (const f of filters) {
       if (filterOptionTypes[filtersOfSameType].includes(f)) {
         newSelectedFilters[ind] = filter;
         changed = true;
@@ -28,7 +34,8 @@ const Filter = () => {
       newSelectedFilters.push(filter);
     }
 
-    setSelectedFilters(newSelectedFilters);
+    // setSelectedFilters(newSelectedFilters);
+    setFilters(newSelectedFilters);
     /*
     setSelectedFilters((prevFilters: string[]) => {
       return [...prevFilters, filter];
@@ -37,17 +44,21 @@ const Filter = () => {
   };
 
   const removeFilter = (filter: string) => {
-    setSelectedFilters((prevFilters: string[]) => {
+    setFilters((prevFilters: string[]) => {
       const newFilters = prevFilters.filter((f) => f !== filter);
       return newFilters;
     });
   };
+
+  console.log("filters : ", filters);
+  console.log(" set filters : ", setFilters);
+
   return (
     <Container>
       <button onClick={() => setOpenFilter((prevState) => !prevState)}>
         Filter
       </button>
-      {selectedFilters.map((filter) => {
+      {filters.map((filter) => {
         return <button onClick={() => removeFilter(filter)}>{filter}</button>;
       })}
       <FilterOptions openFilter={openFilter} addFilter={addFilter} />

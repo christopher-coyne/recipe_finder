@@ -4,6 +4,9 @@ import { ThemeProvider } from "styled-components";
 import Home from "./screens/Home";
 import RecipesContext from "./contexts/RecipesContext";
 import FiltersContext from "./contexts/FiltersContext";
+import { useState } from "react";
+import ReactDom from "react-dom";
+import Modal from "./Layout/Modal";
 
 const theme = {
   primary: "#613DC1",
@@ -19,6 +22,8 @@ const theme = {
 };
 
 function App() {
+  const [openRecipeModal, setOpenRecipeModal] = useState(true);
+  const [openAddModal, setOpenAddModal] = useState(false);
   return (
     <RecipesContext>
       <FiltersContext>
@@ -26,6 +31,13 @@ function App() {
           <div className="App">
             <Home />
           </div>
+          <Modal open={openRecipeModal} toggle={setOpenRecipeModal}>
+            openrecipemodal
+          </Modal>
+
+          <Modal open={openAddModal} toggle={setOpenAddModal}>
+            addrecipemodal
+          </Modal>
         </ThemeProvider>
       </FiltersContext>
     </RecipesContext>

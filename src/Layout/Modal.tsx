@@ -1,21 +1,27 @@
 import React from "react";
 import ReactDom from "react-dom";
-import { StyledModal, Overlay } from "./Modal.style";
+import { useContext } from "react";
+import { StyledModal, Overlay, CloseIcon } from "./Modal.style";
+import { modalContext, setModalContext } from "../contexts/ModalContext";
 
 type Props = {
-  children: React.ReactNode;
-  toggle: React.Dispatch<React.SetStateAction<boolean>>;
-  open: boolean;
+  type: string;
+  children: JSX.Element;
 };
 
-const Modal = ({ children, toggle, open }: Props) => {
-  if (!open) {
+const Modal = ({ type, children }: Props) => {
+  const currentModal = useContext(modalContext);
+  const setCurrentModal = useContext(setModalContext);
+  if (currentModal !== type) {
     return null;
   }
   return ReactDom.createPortal(
     <>
-      <Overlay />
-      <StyledModal>{children}</StyledModal>
+      <Overlay onClick={() => setCurrentModal("")} />
+      <StyledModal>
+        <CloseIcon>X</CloseIcon>
+        {children}
+      </StyledModal>
     </>,
     document.getElementById("portal")!
   );

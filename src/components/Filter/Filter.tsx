@@ -8,9 +8,12 @@ import {
   setFiltersContext,
 } from "../../contexts/FiltersContext";
 
-const Filter = () => {
-  const filters: string[] = useContext(filtersContext);
-  const setFilters = useContext(setFiltersContext);
+type Props = {
+  filters: string[];
+  setFilters: React.Dispatch<React.SetStateAction<string[]>>;
+};
+
+const Filter = ({ filters, setFilters }: Props) => {
   const [openFilter, setOpenFilter] = useState(false);
 
   const addFilter = (filter: string) => {

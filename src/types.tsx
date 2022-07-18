@@ -5,5 +5,6 @@ export interface Recipe {
   difficulty: "beginner" | "advanced";
   cuisine: "american" | "asian" | "italian" | "mexican";
   type: "desert" | "breakfast" | "appetizer" | "entree";
-  user: "sam jones";
+  user: string;
+  date: string;
 }

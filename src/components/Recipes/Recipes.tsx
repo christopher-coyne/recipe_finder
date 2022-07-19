@@ -7,13 +7,15 @@ import { RecipesContainer } from "./Recipes.style";
 
 type Props = {
   filters: string[];
+  searchTerm: string;
 };
 
-const Recipes = ({ filters }: Props) => {
+const Recipes = ({ filters, searchTerm }: Props) => {
   const recipes: Recipe[] = useContext(recipeContext);
   console.log("recipes from recipes : ", recipes);
 
-  const filteredRecipes = filters.length
+  /* filter based on filters */
+  let filteredRecipes = filters.length
     ? recipes.filter((r) => {
         for (const f of filters) {
           if (r.cuisine !== f && r.type !== f && r.difficulty !== f) {
@@ -23,6 +25,13 @@ const Recipes = ({ filters }: Props) => {
         return true;
       })
     : recipes;
+
+  /* filter based on searchterm */
+  if (searchTerm) {
+    filteredRecipes = filteredRecipes.filter((r) =>
+      r.name.includes(searchTerm)
+    );
+  }
   return (
     <RecipesContainer>
       {filteredRecipes.map((r) => (

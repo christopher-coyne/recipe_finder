@@ -8,14 +8,15 @@ import Recipes from "../components/Recipes/Recipes";
 
 const Home = () => {
   const [filters, setFilters] = useState<string[]>([]);
+  const [searchTerm, setSearchTerm] = useState<string>("");
   return (
     <>
       <Navbar />
       <Container>
         <Intro />
-        <Search />
+        <Search setSearchTerm={setSearchTerm} searchTerm={searchTerm} />
         <Filter filters={filters} setFilters={setFilters} />
-        <Recipes filters={filters} />
+        <Recipes filters={filters} searchTerm={searchTerm} />
       </Container>
     </>
   );

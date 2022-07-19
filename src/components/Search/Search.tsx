@@ -1,15 +1,25 @@
 import React from "react";
 import { Container } from "./Search.style";
 import Button from "../Button/Button";
-import Searchbar from "./Searchbar/Searchbar";
+import { StyledSearch } from "./Search.style";
 import { setModalContext } from "../../contexts/ModalContext";
 import { useContext } from "react";
 
-const Search = () => {
+type Props = {
+  setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
+  searchTerm: string;
+};
+
+const Search = ({ setSearchTerm, searchTerm }: Props) => {
   const setCurrentModal = useContext(setModalContext);
   return (
     <Container>
-      <Searchbar />
+      <StyledSearch
+        onChange={(e: any) => {
+          setSearchTerm(e.target.value);
+        }}
+        value={searchTerm}
+      />
       <Button input={"+ Add Recipe"} onClick={() => setCurrentModal("add")} />
     </Container>
   );

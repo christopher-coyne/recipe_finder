@@ -3,9 +3,10 @@ import React from "react";
 interface Props {
   input: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
+  type: null | "small" | "regular" | "cancel";
 }
 
-const Button: React.FC<Props> = ({ input, onClick }: Props) => {
+const Button: React.FC<Props> = ({ input, onClick, type }: Props) => {
   return <StyledButton onClick={onClick}>{input}</StyledButton>;
 };
 

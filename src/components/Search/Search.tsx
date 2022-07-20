@@ -20,7 +20,11 @@ const Search = ({ setSearchTerm, searchTerm }: Props) => {
         }}
         value={searchTerm}
       />
-      <Button input={"+ Add Recipe"} onClick={() => setCurrentModal("add")} />
+      <Button
+        input={"+ Add Recipe"}
+        onClick={() => setCurrentModal("add")}
+        type="regular"
+      />
     </Container>
   );
 };

@@ -3,6 +3,7 @@ import { StyledForm, StyledTextArea } from "./AddRecipe.style";
 import Button from "../Button/Button";
 import { Recipe } from "../../types";
 import types from "../../FilterOptionTypes";
+import { calcDate } from "../../utilities/dates";
 
 import {
   selectedRecipeContext,
@@ -46,6 +47,7 @@ const AddRecipe = () => {
       dishName.current.value
     ) {
       console.log(userName.current.value);
+      const newDate = calcDate();
       const newRecipe = {
         name: dishName.current.value,
         ingredients: ingredients.current.value,
@@ -54,7 +56,7 @@ const AddRecipe = () => {
         cuisine: "american",
         type: "breakfast",
         user: userName.current.value,
-        date: "sample date",
+        date: newDate.toString(),
       };
       userName.current.value = "";
       setRecipes((prev: Recipe[]) => {

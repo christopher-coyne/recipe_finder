@@ -11,6 +11,8 @@ import {
 } from "../../contexts/ModalContext";
 import { setModalContext } from "../../contexts/ModalContext";
 import { setRecipeContext } from "../../contexts/RecipesContext";
+import filterTypes from "../../FilterOptionTypes";
+import ButtonsOptions from "./components/ButtonsOptions";
 
 const AddRecipe = () => {
   const setModal = useContext(setModalContext);
@@ -21,11 +23,39 @@ const AddRecipe = () => {
   const instructions = useRef<HTMLTextAreaElement>(null);
   const dishName = useRef<HTMLInputElement>(null);
 
+  const [clickedButtons, setClickedButtons] = useState<string[]>([]);
+
   const [difficulty, setDifficulty] = useState("");
   const [cuisine, setCuisine] = useState("");
   const [type, setType] = useState("");
 
   const [error, setError] = useState(false);
+
+  const handleClick = (buttonType: string) => {
+    const filtersOfSameType = Object.keys(filterTypes).filter((key) =>
+      filterTypes[key].includes(buttonType)
+    )[0];
+
+    const newSelectedFilters: string[] = [...clickedButtons];
+    let changed = false;
+    let ind = 0;
+    for (const f of clickedButtons) {
+      if (filterTypes[filtersOfSameType].includes(f)) {
+        newSelectedFilters[ind] = buttonType;
+        changed = true;
+        break;
+      }
+      ind += 1;
+    }
+    if (!changed) {
+      newSelectedFilters.push(buttonType);
+    }
+
+    console.log("new selected buttons : ", newSelectedFilters);
+
+    // setSelectedFilters(newSelectedFilters);
+    setClickedButtons(newSelectedFilters);
+  };
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
@@ -44,17 +74,27 @@ const AddRecipe = () => {
       userName.current.value &&
       instructions.current.value &&
       ingredients.current.value &&
-      dishName.current.value
+      dishName.current.value &&
+      clickedButtons.length === 3
     ) {
+      const newCuisine = clickedButtons.filter((button) =>
+        types.cuisine.includes(button)
+      );
+      const newFood = clickedButtons.filter((button) =>
+        types.food.includes(button)
+      );
+      const newDifficulty = clickedButtons.filter((button) =>
+        types.difficulty.includes(button)
+      );
       console.log(userName.current.value);
       const newDate = calcDate();
       const newRecipe = {
         name: dishName.current.value,
         ingredients: ingredients.current.value,
         instructions: instructions.current.value,
-        difficulty: "beginner",
-        cuisine: "american",
-        type: "breakfast",
+        difficulty: newDifficulty,
+        cuisine: newCuisine,
+        type: newFood,
         user: userName.current.value,
         date: newDate.toString(),
       };
@@ -75,16 +115,10 @@ const AddRecipe = () => {
     <StyledForm>
       <h1>Submit a New Recipe</h1>
       {error && <h2>'Please fill out all fields before submitting'</h2>}
-      <label>Cuisine:</label>
-      {types.cuisine.map((cuisine: string) => (
-        <Button
-          input={cuisine}
-          onClick={() => console.log("hello")}
-          type={"small"}
-        />
-      ))}
-      <label>Difficulty:</label>
-      <label>Food Type:</label>
+      <ButtonsOptions
+        handleClick={handleClick}
+        clickedButtons={clickedButtons}
+      />
       <label>Dish Name:</label>
       <input type="text" ref={dishName}></input>
       <label>Ingredients:</label>

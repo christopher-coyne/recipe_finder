@@ -4,7 +4,8 @@ import types from "../../../../FilterOptionTypes";
 export const Container = styled("div")`
   text-align: left;
   padding: 2rem;
-  border: 1px solid red;
+  border: 2px solid black;
+  border-radius: 0.5rem;
 `;
 
 export const OptionContainer = styled("div")`

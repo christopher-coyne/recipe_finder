@@ -1,8 +1,9 @@
 import { useContext } from "react";
-import { Container } from "./Filter.style";
+import { Container, OpenFilters } from "./Filter.style";
 import { useState } from "react";
 import FilterOptions from "./components/FilterOptions/FilterOptions";
 import filterOptionTypes from "../../FilterOptionTypes";
+import Button from "../Button/Button";
 import {
   filtersContext,
   setFiltersContext,
@@ -58,11 +59,17 @@ const Filter = ({ filters, setFilters }: Props) => {
 
   return (
     <Container>
-      <button onClick={() => setOpenFilter((prevState) => !prevState)}>
-        Filter
-      </button>
+      <OpenFilters onClick={() => setOpenFilter((prevState) => !prevState)}>
+        Filter V
+      </OpenFilters>
       {filters.map((filter) => {
-        return <button onClick={() => removeFilter(filter)}>{filter}</button>;
+        return (
+          <Button
+            onClick={() => removeFilter(filter)}
+            input={filter}
+            type="small"
+          />
+        );
       })}
       <FilterOptions openFilter={openFilter} addFilter={addFilter} />
     </Container>

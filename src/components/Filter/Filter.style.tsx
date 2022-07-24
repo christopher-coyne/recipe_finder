@@ -5,7 +5,8 @@ export const Container = styled("div")`
 `;
 
 export const OpenFilters = styled("button")`
-  background-color: none;
+  background-color: white;
+  cursor: pointer;
   border: none;
   font-size: ${(props) => props.theme.fontSizes.large};
   margin: 1rem 0rem;

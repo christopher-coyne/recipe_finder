@@ -2,17 +2,19 @@ import { useState } from "react";
 import {
   Container,
   OptionContainer,
-  TypeOption,
   TypeName,
+  SelectFilter,
 } from "./FilterOptions.style";
+import Button from "../../../Button/Button";
 import types from "../../../../FilterOptionTypes";
 
 type Props = {
   openFilter: boolean;
   addFilter: (filter: string) => void;
+  filters: string[];
 };
 
-const FilterOptions = ({ openFilter, addFilter }: Props) => {
+const FilterOptions = ({ openFilter, addFilter, filters }: Props) => {
   return (
     <>
       {openFilter && (
@@ -22,9 +24,15 @@ const FilterOptions = ({ openFilter, addFilter }: Props) => {
               <OptionContainer>
                 <TypeName> {filterType}</TypeName>
                 {types[filterType].map((type: string) => (
-                  <TypeOption onClick={() => addFilter(type)}>
-                    {type}
-                  </TypeOption>
+                  <SelectFilter
+                    onClick={() => addFilter(type)}
+                    buttonType={
+                      filters.includes(type) ? "clicked" : "unClicked"
+                    }
+                  >
+                    {" "}
+                    {type}{" "}
+                  </SelectFilter>
                 ))}
               </OptionContainer>
             );

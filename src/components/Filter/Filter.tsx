@@ -71,7 +71,11 @@ const Filter = ({ filters, setFilters }: Props) => {
           />
         );
       })}
-      <FilterOptions openFilter={openFilter} addFilter={addFilter} />
+      <FilterOptions
+        openFilter={openFilter}
+        addFilter={addFilter}
+        filters={filters}
+      />
     </Container>
   );
 };

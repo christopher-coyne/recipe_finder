@@ -3,14 +3,7 @@ import React from "react";
 interface Props {
   input: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
-  type:
-    | "small"
-    | "regular"
-    | "cancel"
-    | "clicked"
-    | "option"
-    | "unstyled"
-    | "unstyledClicked";
+  type: "small" | "regular" | "cancel" | "clicked" | "option";
 }
 
 const Button = ({ input, onClick, type }: Props) => {

@@ -11,7 +11,7 @@ export const StyledModal = styled("div")`
   border: 1px solid red;
 `;
 
-export const CloseIcon = styled("div")`
+export const CloseIcon = styled("button")`
   position: fixed;
   top: 10%;
   right: 10%;

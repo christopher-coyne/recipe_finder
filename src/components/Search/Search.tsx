@@ -19,6 +19,7 @@ const Search = ({ setSearchTerm, searchTerm }: Props) => {
           setSearchTerm(e.target.value);
         }}
         value={searchTerm}
+        placeholder="Search for Recipes"
       />
       <Button
         input={"+ Add Recipe"}

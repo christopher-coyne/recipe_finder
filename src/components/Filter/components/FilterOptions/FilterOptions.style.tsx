@@ -15,6 +15,6 @@ export const TypeName = styled("span")`
   font-weight: bold;
 `;
 
-export const TypeOption = styled("span")`
+export const TypeOption = styled("button")`
   font-weight: regular;
 `;

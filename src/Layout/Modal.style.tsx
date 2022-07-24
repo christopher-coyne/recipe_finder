@@ -9,9 +9,10 @@ export const StyledModal = styled("div")`
   padding: 50px;
   zindex: 2;
   border-radius: 1rem;
-  width: 400px;
+  width: 500px;
   max-height: 400px;
   overflow-y: scroll;
+  border: 3px solid blue
 `;
 
 export const CloseIcon = styled("button")`

@@ -68,6 +68,7 @@ const Filter = ({ filters, setFilters }: Props) => {
             onClick={() => removeFilter(filter)}
             input={filter}
             type="small"
+            closeable
           />
         );
       })}

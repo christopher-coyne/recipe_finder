@@ -2,6 +2,7 @@ import { useContext } from "react";
 
 import { recipeContext } from "../../../contexts/RecipesContext";
 import { BoldText, StyledRecipe, User, Content } from "./RecipeCard.style";
+import { capitalize } from "../../../utilities/capitalize";
 import { Recipe } from "../../../types";
 import {
   setSelectedRecipeContext,
@@ -22,13 +23,13 @@ const RecipeCard = ({ recipe }: props) => {
   return (
     <StyledRecipe onClick={() => handleModal()}>
       <Content>
-        <h2>{recipe.name}</h2>
+        <h2>{capitalize(recipe.name)}</h2>
         <p>
-          <BoldText>Ingredients:</BoldText> {recipe.ingredients}
+          <BoldText>Ingredients:</BoldText>{" "}
+          {recipe.ingredients.split(" ").slice(0, 20).join(" ")}...
         </p>
-        <p>{recipe.instructions}</p>
       </Content>
-      <User>{recipe.user}</User>
+      <User>{capitalize(recipe.user)}</User>
     </StyledRecipe>
   );
 };

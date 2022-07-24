@@ -14,19 +14,21 @@ import AddRecipe from "./components/AddRecipe/AddRecipe";
 import { modalContext, setModalContext } from "./contexts/ModalContext";
 
 const theme = {
-  primary: "#613DC1",
-  secondary: "#858AE3",
-  font: {
-    large: {
-      size: "2.2rem",
-    },
-    medium: {
-      size: "1.25rem",
-    },
+  colors: {
+    primary: "#613DC1",
+    secondary: "#858AE3",
+  },
+  fontSizes: {
+    large: "2.2rem",
+    medium: "1.25rem",
+  },
+  fontWeights: {
+    regular: 400,
   },
 };
 
 function App() {
+  console.log("app rerender");
   const currentModal = useContext(modalContext);
   const setCurrentModal = useContext(setModalContext);
   return (

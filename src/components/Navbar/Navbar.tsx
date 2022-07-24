@@ -4,8 +4,14 @@ import { StyledNavbar } from "./Navbar.style";
 const Navbar = () => {
   return (
     <StyledNavbar>
-      <h3>About</h3>
-      <h3>Github</h3>
+      <h3>RecipeFinder</h3>
+      <a
+        href="https://github.com/christopher-coyne/recipe_finder"
+        rel="noreferrer"
+        target="_blank"
+      >
+        Github
+      </a>
     </StyledNavbar>
   );
 };

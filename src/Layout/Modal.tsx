@@ -19,7 +19,7 @@ const Modal = ({ type, children }: Props) => {
     <>
       <Overlay onClick={() => setCurrentModal("")} />
       <StyledModal>
-        <CloseIcon>X</CloseIcon>
+        <CloseIcon onClick={() => setCurrentModal("")}>X</CloseIcon>
         {children}
       </StyledModal>
     </>,

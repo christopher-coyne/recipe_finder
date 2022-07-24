@@ -8,13 +8,22 @@ export const StyledModal = styled("div")`
   background-color white;
   padding: 50px;
   zindex: 2;
-  border: 1px solid red;
+  border-radius: 1rem;
+  width: 400px;
+  max-height: 400px;
+  overflow-y: scroll;
 `;
 
 export const CloseIcon = styled("button")`
   position: fixed;
   top: 10%;
   right: 10%;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: ${(props) => props.theme.colors.primary};
+  font-weight: ${(props) => props.theme.fontWeights.bold};
+  font-size: ${(props) => props.theme.fontSizes.large};
 `;
 
 export const Overlay = styled("div")`

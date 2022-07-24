@@ -6,6 +6,7 @@ export const IntroWrapper = styled("article")`
   margin: auto;
   margin-top: 4rem;
   text-align: left;
+  color: ${(props) => props.theme.colors.text};
 
   & h1 {
     font-size: ${(props) => props.theme.fontSizes.largest};

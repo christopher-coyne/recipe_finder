@@ -4,12 +4,13 @@ interface Props {
   input: string;
   onClick: React.MouseEventHandler<HTMLButtonElement>;
   type: "small" | "regular" | "cancel" | "clicked" | "option";
+  closeable?: true | null;
 }
 
-const Button = ({ input, onClick, type }: Props) => {
+const Button = ({ input, onClick, type, closeable }: Props) => {
   return (
     <StyledButton onClick={onClick} buttonType={type}>
-      {type === "small" && <CloseButton>X</CloseButton>}
+      {closeable && <CloseButton>X</CloseButton>}
       {input}
     </StyledButton>
   );

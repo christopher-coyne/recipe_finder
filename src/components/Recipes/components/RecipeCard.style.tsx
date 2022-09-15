@@ -15,6 +15,10 @@ export const StyledRecipe = styled("div")`
     font-weight: ${(props) => props.theme.fontWeights.semiBold};
     margin-bottom: 0.5rem;
   }
+
+  &:hover {
+    box-shadow: 3px 3px 6px #e2a4eb;
+  }
 `;
 
 export const Content = styled("div")`

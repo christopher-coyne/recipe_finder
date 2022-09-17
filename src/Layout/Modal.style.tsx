@@ -5,26 +5,34 @@ export const StyledModal = styled("div")`
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color white;
-  padding: 50px;
-  zindex: 2;
+  background-color: white;
+  padding: 40px;
+  z-index: 2;
   border-radius: 1rem;
   width: 500px;
   max-height: 400px;
   overflow-y: scroll;
-  border: 3px solid blue
+  border: 3px solid blue;
 `;
 
 export const CloseIcon = styled("button")`
   position: fixed;
-  top: 10%;
-  right: 10%;
+  top: 2%;
+  right: 2%;
   border: none;
-  background-color: white;
+  background-color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
-  color: ${(props) => props.theme.colors.primary};
+  color: white;
   font-weight: ${(props) => props.theme.fontWeights.bold};
-  font-size: ${(props) => props.theme.fontSizes.large};
+  font-size: ${(props) => props.theme.fontSizes.medium};
+  padding: 1rem;
+  border-radius: 100%;
+  width: 50px;
+  height: 50px;
+
+  &:hover {
+    background-color: ${({ theme }) => theme.shades.primary.d2};
+  }
 `;
 
 export const Overlay = styled("div")`
@@ -35,6 +43,6 @@ export const Overlay = styled("div")`
   bottom: 0;
   color: blue;
   background-color: rgba(0, 0, 0, 0.7);
-  zindex: 2;
+  z-index: 2;
   border: 1px solid blue;
 `;

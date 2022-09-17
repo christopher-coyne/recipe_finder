@@ -1,4 +1,4 @@
-export const capitalize = (myString) => {
+export const capitalize = (myString: string) => {
   const newStr = myString
     .split(" ")
     .map((word) => {

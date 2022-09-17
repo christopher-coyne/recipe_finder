@@ -9,7 +9,7 @@ type Props = {
   children: JSX.Element;
 };
 
-const Modal = ({ type, children }: Props) => {
+export const Modal = ({ type, children }: Props) => {
   const currentModal = useContext(modalContext);
   const setCurrentModal = useContext(setModalContext);
   if (currentModal !== type) {
@@ -26,5 +26,3 @@ const Modal = ({ type, children }: Props) => {
     document.getElementById("portal")!
   );
 };
-
-export default Modal;

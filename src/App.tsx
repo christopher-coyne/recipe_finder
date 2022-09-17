@@ -6,7 +6,7 @@ import RecipesContext from "contexts/RecipesContext";
 import FiltersContext from "contexts/FiltersContext";
 import { useState, useContext } from "react";
 import ReactDom from "react-dom";
-import Modal from "Layout/Modal";
+import { Modal } from "layout/Modal";
 import ModalContext from "contexts/ModalContext";
 import { FullRecipe } from "components/FullRecipe";
 import { AddRecipe } from "components/AddRecipe";

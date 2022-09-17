@@ -13,6 +13,12 @@ export const theme = {
       l1: "#B399F7",
       l2: "#EFE9FF",
     },
+    error: {
+      d2: "#8A0924",
+      d1: "#AB344C",
+      l1: "#FFA5B7",
+      l2: "#FFD0DA",
+    },
   },
   fontSizes: {
     largest: "2.2rem",

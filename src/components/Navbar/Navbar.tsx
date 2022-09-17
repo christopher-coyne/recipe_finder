@@ -1,7 +1,7 @@
 import React from "react";
 import { StyledNavbar } from "./Navbar.style";
 
-const Navbar = () => {
+export const Navbar = () => {
   return (
     <StyledNavbar>
       <h3>RecipeFinder</h3>
@@ -15,5 +15,3 @@ const Navbar = () => {
     </StyledNavbar>
   );
 };
-
-export default Navbar;

@@ -5,7 +5,7 @@ import {
   TypeName,
   SelectFilter,
 } from "./FilterOptions.style";
-import Button from "../../../Button/Button";
+import { Button } from "../../../Button/Button";
 import types from "../../../../FilterOptionTypes";
 
 type Props = {
@@ -14,7 +14,7 @@ type Props = {
   filters: string[];
 };
 
-const FilterOptions = ({ openFilter, addFilter, filters }: Props) => {
+export const FilterOptions = ({ openFilter, addFilter, filters }: Props) => {
   return (
     <>
       {openFilter && (
@@ -42,7 +42,3 @@ const FilterOptions = ({ openFilter, addFilter, filters }: Props) => {
     </>
   );
 };
-
-export default FilterOptions;
-
-/* {types.cuisine.map(type => <TypeOption >{type}<TypeOption />)} */

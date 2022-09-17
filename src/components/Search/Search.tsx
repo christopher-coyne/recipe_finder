@@ -1,6 +1,6 @@
 import React from "react";
 import { Container } from "./Search.style";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 import { StyledSearch } from "./Search.style";
 import { setModalContext } from "../../contexts/ModalContext";
 import { useContext } from "react";
@@ -10,7 +10,7 @@ type Props = {
   searchTerm: string;
 };
 
-const Search = ({ setSearchTerm, searchTerm }: Props) => {
+export const Search = ({ setSearchTerm, searchTerm }: Props) => {
   const setCurrentModal = useContext(setModalContext);
   return (
     <Container>
@@ -30,5 +30,3 @@ const Search = ({ setSearchTerm, searchTerm }: Props) => {
     </Container>
   );
 };
-
-export default Search;

@@ -1,6 +1,6 @@
 import React, { useRef, useState, useContext } from "react";
 import { StyledForm, Error } from "./AddRecipe.style";
-import Button from "../Button/Button";
+import { Button } from "components/Button";
 import { Recipe } from "../../types";
 import types from "../../FilterOptionTypes";
 import { calcDate } from "../../utilities/dates";
@@ -12,9 +12,9 @@ import {
 import { setModalContext } from "../../contexts/ModalContext";
 import { setRecipeContext } from "../../contexts/RecipesContext";
 import filterTypes from "../../FilterOptionTypes";
-import ButtonsOptions from "./components/ButtonsOptions";
+import { ButtonsOptions } from "./components/ButtonsOptions";
 
-const AddRecipe = () => {
+export const AddRecipe = () => {
   const setModal = useContext(setModalContext);
   const setRecipes = useContext(setRecipeContext);
   /* refs for text input */
@@ -132,24 +132,3 @@ const AddRecipe = () => {
     </StyledForm>
   );
 };
-
-export default AddRecipe;
-
-/*
-<h1>Submit a New Recipe</h1>
-      <ButtonsOptions
-        handleClick={handleClick}
-        clickedButtons={clickedButtons}
-      />
-      <label>Dish Name:</label>
-      <input type="text" ref={dishName}></input>
-      <label>Ingredients:</label>
-      <textarea ref={ingredients} />
-      <label>Instructions:</label>
-      <textarea ref={instructions} />
-      <label>Username:</label>
-      <input type="text" ref={userName}></input>
-      {error && <Error>Please fill out all fields before submitting</Error>}
-      <Button input="submit" onClick={(e) => handleSubmit(e)} type="regular" />
-      <Button input="cancel" onClick={(e) => handleSubmit(e)} type="cancel" />
-      */

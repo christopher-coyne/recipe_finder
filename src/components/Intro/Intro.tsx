@@ -1,7 +1,7 @@
 import React from "react";
 import { IntroWrapper } from "./Intro.style";
 
-const Intro = () => {
+export const Intro = () => {
   return (
     <IntroWrapper>
       <h1>Recipe Finder</h1>
@@ -12,5 +12,3 @@ const Intro = () => {
     </IntroWrapper>
   );
 };
-
-export default Intro;

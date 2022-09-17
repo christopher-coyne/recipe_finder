@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { recipeContext } from "../../contexts/RecipesContext";
-import RecipeCard from "./components/RecipeCard";
+import { RecipeCard } from "./components/RecipeCard";
 import { Recipe } from "../../types";
 import { filtersContext } from "../../contexts/FiltersContext";
 import { RecipesContainer } from "./Recipes.style";
@@ -10,7 +10,7 @@ type Props = {
   searchTerm: string;
 };
 
-const Recipes = ({ filters, searchTerm }: Props) => {
+export const Recipes = ({ filters, searchTerm }: Props) => {
   const recipes: Recipe[] = useContext(recipeContext);
   console.log("recipes from recipes : ", recipes);
 
@@ -40,5 +40,3 @@ const Recipes = ({ filters, searchTerm }: Props) => {
     </RecipesContainer>
   );
 };
-
-export default Recipes;

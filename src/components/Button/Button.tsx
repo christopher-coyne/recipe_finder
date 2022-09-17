@@ -7,7 +7,7 @@ interface Props {
   closeable?: true | null;
 }
 
-const Button = ({ input, onClick, type, closeable }: Props) => {
+export const Button = ({ input, onClick, type, closeable }: Props) => {
   return (
     <StyledButton onClick={onClick} buttonType={type}>
       {closeable && <CloseButton>X</CloseButton>}
@@ -15,5 +15,3 @@ const Button = ({ input, onClick, type, closeable }: Props) => {
     </StyledButton>
   );
 };
-
-export default Button;

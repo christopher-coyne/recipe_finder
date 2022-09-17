@@ -13,7 +13,7 @@ type props = {
   recipe: Recipe;
 };
 
-const RecipeCard = ({ recipe }: props) => {
+export const RecipeCard = ({ recipe }: props) => {
   const setModal = useContext(setModalContext);
   const setSelectedRecipe = useContext(setSelectedRecipeContext);
   const handleModal = () => {
@@ -33,5 +33,3 @@ const RecipeCard = ({ recipe }: props) => {
     </StyledRecipe>
   );
 };
-
-export default RecipeCard;

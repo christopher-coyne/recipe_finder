@@ -1,12 +1,12 @@
 import { Container } from "./Home.style";
 import { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
-import Intro from "../components/Intro/Intro";
-import Search from "../components/Search/Search";
-import Filter from "../components/Filter/Filter";
-import Recipes from "../components/Recipes/Recipes";
+import { Navbar } from "components/Navbar";
+import { Intro } from "components/Intro";
+import { Search } from "components/Search";
+import { Filter } from "components/Filter";
+import { Recipes } from "components/Recipes";
 
-const Home = () => {
+export const Home = () => {
   const [filters, setFilters] = useState<string[]>([]);
   const [searchTerm, setSearchTerm] = useState<string>("");
   return (
@@ -21,5 +21,3 @@ const Home = () => {
     </>
   );
 };
-
-export default Home;

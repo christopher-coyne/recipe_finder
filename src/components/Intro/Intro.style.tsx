@@ -2,18 +2,19 @@ import styled from "styled-components";
 import { colors } from "../../colors";
 
 export const IntroWrapper = styled("article")`
-  border: 1px solid red;
   margin: auto;
   margin-top: 4rem;
   text-align: left;
-  color: ${(props) => props.theme.colors.text};
+  color: ${({ theme }) => theme.colors.text};
 
   & h1 {
-    font-size: ${(props) => props.theme.fontSizes.largest};
-    font-weight: ${(props) => props.theme.fontWeights.regular};
+    font-size: ${({ theme }) => theme.fontSizes.largest};
+    font-weight: ${({ theme }) => theme.fontWeights.regular};
+    padding: 0.5rem 0rem;
   }
 
   & p {
-    font-size: ${(props) => props.theme.fontSizes.large};
+    font-size: ${({ theme }) => theme.fontSizes.large};
+    padding: 0.5rem 0rem;
   }
 `;

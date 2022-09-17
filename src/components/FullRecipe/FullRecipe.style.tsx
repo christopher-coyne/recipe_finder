@@ -2,29 +2,39 @@ import styled from "styled-components";
 
 export const StyledRecipe = styled("div")`
   & h1 {
-    font-size: ${(props) => props.theme.fontSizes.large};
-    font-weight: ${(props) => props.theme.fontWeights.semiBold};
-    color: ${(props) => props.theme.colors.primary};
+    font-size: ${({ theme }) => theme.fontSizes.large};
+    font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+    color: ${({ theme }) => theme.colors.primary};
   }
   & p {
-    font-size: ${(props) => props.theme.fontSizes.medium};
+    font-size: ${({ theme }) => theme.fontSizes.medium};
     margin: 1rem 0rem;
   }
+  border: 1px solid red;
 `;
 
 export const BoldSpan = styled("span")`
-  font-weight: ${(props) => props.theme.fontWeights.semiBold};
-  color: ${(props) => props.theme.colors.secondary};
+  font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+  color: ${({ theme }) => theme.colors.secondary};
 `;
 
-export const Tag = styled("span")``;
+export const Tags = styled("ul")`
+  padding: 0.5rem 0rem;
+  & li {
+    display: inline-block;
+    padding: 0.5rem;
+    background-color: ${({ theme }) => theme.shades.primary.l2};
+    color: ${({ theme }) => theme.shades.primary.d1};
+    margin-right: 0.5rem;
+  }
+`;
 
 export const BottomText = styled("div")`
   display: flex;
   justify-content: space-between;
   & h2 {
-    font-weight: ${(props) => props.theme.fontWeights.semiBold};
-    color: ${(props) => props.theme.colors.secondary};
-    font-size: ${(props) => props.theme.fontSizes.medium};
+    font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+    color: ${({ theme }) => theme.colors.secondary};
+    font-size: ${({ theme }) => theme.fontSizes.medium};
   }
 `;

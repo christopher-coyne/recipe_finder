@@ -1,7 +1,8 @@
 import React from "react";
 import filterOptions from "../../../FilterOptionTypes";
-import Button from "../../Button/Button";
-import { capitalize } from "../../../utilities/capitalize";
+import { Button } from "components/Button";
+import { capitalize } from "utilities/capitalize";
+import { Container } from "./ButtonsOptions.style";
 
 type Props = {
   handleClick: (buttonType: string) => void;
@@ -16,7 +17,7 @@ export const ButtonsOptions = ({ clickedButtons, handleClick }: Props) => {
     <>
       {filters.map((filter) => {
         return (
-          <>
+          <Container>
             <label>{capitalize(filter)}:</label>
             {filterOptions[filter].map((buttonType: string) => {
               return (
@@ -32,11 +33,9 @@ export const ButtonsOptions = ({ clickedButtons, handleClick }: Props) => {
                 />
               );
             })}
-          </>
+          </Container>
         );
       })}
     </>
   );
 };
-
-export default ButtonsOptions;

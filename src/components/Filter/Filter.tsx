@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { Container, OpenFilters } from "./Filter.style";
 import { useState } from "react";
-import FilterOptions from "./components/FilterOptions/FilterOptions";
+import { FilterOptions } from "./components/FilterOptions/FilterOptions";
 import filterOptionTypes from "../../FilterOptionTypes";
-import Button from "../Button/Button";
+import { Button } from "../Button/Button";
 import {
   filtersContext,
   setFiltersContext,
@@ -14,7 +14,7 @@ type Props = {
   setFilters: React.Dispatch<React.SetStateAction<string[]>>;
 };
 
-const Filter = ({ filters, setFilters }: Props) => {
+export const Filter = ({ filters, setFilters }: Props) => {
   const [openFilter, setOpenFilter] = useState(false);
 
   const addFilter = (filter: string) => {
@@ -80,5 +80,3 @@ const Filter = ({ filters, setFilters }: Props) => {
     </Container>
   );
 };
-
-export default Filter;

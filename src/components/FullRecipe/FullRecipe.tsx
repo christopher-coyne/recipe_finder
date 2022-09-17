@@ -1,22 +1,27 @@
 import React from "react";
 import { useContext } from "react";
-import { StyledRecipe, Tag, BoldSpan, BottomText } from "./FullRecipe.style";
+import { StyledRecipe, Tags, BoldSpan, BottomText } from "./FullRecipe.style";
 import { Recipe } from "../../types";
 
 import { selectedRecipeContext } from "../../contexts/ModalContext";
 import { setSelectedRecipeContext } from "../../contexts/ModalContext";
+import { setRecipeContext } from "../../contexts/RecipesContext";
 
-const FullRecipe = () => {
+import { capitalize } from "utilities";
+
+export const FullRecipe = () => {
   const recipe: Recipe = useContext<Recipe>(selectedRecipeContext);
   if (!recipe) {
     return <></>;
   }
   return (
     <StyledRecipe>
-      <h1>{recipe.name}</h1>
-      <Tag>{recipe.cuisine}</Tag>
-      <Tag>{recipe.difficulty}</Tag>
-      <Tag>{recipe.type}</Tag>
+      <h1>{capitalize(recipe.name)}</h1>
+      <Tags>
+        <li>{recipe.cuisine}</li>
+        <li>{recipe.difficulty}</li>
+        <li>{recipe.type}</li>
+      </Tags>
       <p>
         <BoldSpan>Ingredients: </BoldSpan>
         {recipe.ingredients}
@@ -26,11 +31,9 @@ const FullRecipe = () => {
         {recipe.instructions}
       </p>
       <BottomText>
-        <h2>{recipe.user}</h2>
+        <h2>{capitalize(recipe.user)}</h2>
         <h2>{recipe.date}</h2>
       </BottomText>
     </StyledRecipe>
   );
 };
-
-export default FullRecipe;

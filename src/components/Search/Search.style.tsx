@@ -12,5 +12,10 @@ export const StyledSearch = styled("input")`
   flex-grow: 1;
   margin-right: 1rem;
   border-radius: 0.6rem;
-  font-size: ${(props) => props.theme.fontSizes.medium};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+
+  &:focus {
+    outline: none;
+    background-color: ${({ theme }) => theme.shades.primary.l2};
+  }
 `;

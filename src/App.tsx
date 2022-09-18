@@ -3,9 +3,7 @@ import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { Home } from "./screens/Home";
 import RecipesContext from "contexts/RecipesContext";
-import FiltersContext from "contexts/FiltersContext";
-import { useState, useContext } from "react";
-import ReactDom from "react-dom";
+import { useContext } from "react";
 import { Modal } from "layout/Modal";
 import ModalContext from "contexts/ModalContext";
 import { FullRecipe } from "components/FullRecipe";
@@ -15,9 +13,6 @@ import { modalContext, setModalContext } from "./contexts/ModalContext";
 import { theme } from "./styles/theme";
 
 function App() {
-  console.log("app rerender");
-  const currentModal = useContext(modalContext);
-  const setCurrentModal = useContext(setModalContext);
   return (
     <RecipesContext>
       <ModalContext>

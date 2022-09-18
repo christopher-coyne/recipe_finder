@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledForm = styled("form")`
   box-sizing: border-box;
   color: ${({ theme }) => theme.colors.text};
-  border: 1px solid red;
   overflow-y: scroll;
   & h1 {
     font-size: ${({ theme }) => theme.fontSizes.large};
@@ -42,5 +41,15 @@ export const StyledForm = styled("form")`
 `;
 
 export const Error = styled("div")`
-  background-color: ${({ theme }) => theme.colors.error};
+  background-color: ${({ theme }) => theme.shades.error.l2};
+  color: ${({ theme }) => theme.shades.error.d1};
+  font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+`;
+
+export const ButtonContainer = styled("div")`
+  display: flex;
+  justify-content: right;
+  gap: 1rem;
 `;

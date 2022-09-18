@@ -1,5 +1,5 @@
 import React, { useRef, useState, useContext } from "react";
-import { StyledForm, Error } from "./AddRecipe.style";
+import { StyledForm, Error, ButtonContainer } from "./AddRecipe.style";
 import { Button } from "components/Button";
 import { Recipe } from "../../types";
 import { calcDate } from "../../utilities/dates";
@@ -105,8 +105,14 @@ export const AddRecipe = () => {
       <label>Username:</label>
       <input type="text" ref={userName}></input>
       {error && <Error>Please fill out all fields before submitting</Error>}
-      <Button input="submit" onClick={(e) => handleSubmit(e)} type="regular" />
-      <Button input="cancel" onClick={(e) => handleSubmit(e)} type="cancel" />
+      <ButtonContainer>
+        <Button
+          input="submit"
+          onClick={(e) => handleSubmit(e)}
+          type="regular"
+        />
+        <Button input="cancel" onClick={() => setModal("")} type="cancel" />
+      </ButtonContainer>
     </StyledForm>
   );
 };

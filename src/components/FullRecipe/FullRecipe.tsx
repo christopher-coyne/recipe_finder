@@ -18,9 +18,9 @@ export const FullRecipe = () => {
     <StyledRecipe>
       <h1>{capitalize(recipe.name)}</h1>
       <Tags>
-        <li>{recipe.cuisine}</li>
-        <li>{recipe.difficulty}</li>
-        <li>{recipe.type}</li>
+        {recipe.cuisine && <li>{recipe.cuisine}</li>}
+        {recipe.difficulty && <li>{recipe.difficulty}</li>}
+        {recipe.type && <li>{recipe.type}</li>}
       </Tags>
       <p>
         <BoldSpan>Ingredients: </BoldSpan>

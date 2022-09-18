@@ -15,6 +15,6 @@ export const IntroWrapper = styled("article")`
 
   & p {
     font-size: ${({ theme }) => theme.fontSizes.large};
-    padding: 0.5rem 0rem;
+    padding-bottom: 0.2rem;
   }
 `;

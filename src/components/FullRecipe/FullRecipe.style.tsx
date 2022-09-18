@@ -10,7 +10,6 @@ export const StyledRecipe = styled("div")`
     font-size: ${({ theme }) => theme.fontSizes.medium};
     margin: 1rem 0rem;
   }
-  border: 1px solid red;
 `;
 
 export const BoldSpan = styled("span")`

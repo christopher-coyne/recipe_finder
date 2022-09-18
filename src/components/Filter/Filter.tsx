@@ -1,13 +1,9 @@
-import { useContext } from "react";
 import { Container, OpenFilters } from "./Filter.style";
 import { useState } from "react";
 import { FilterOptions } from "./components/FilterOptions/FilterOptions";
-import filterOptionTypes from "../../FilterOptionTypes";
 import { Button } from "../Button/Button";
-import {
-  filtersContext,
-  setFiltersContext,
-} from "../../contexts/FiltersContext";
+
+import { selectButton } from "utilities/selectButton";
 
 type Props = {
   filters: string[];
@@ -18,33 +14,7 @@ export const Filter = ({ filters, setFilters }: Props) => {
   const [openFilter, setOpenFilter] = useState(false);
 
   const addFilter = (filter: string) => {
-    console.log("adding filter...");
-    const filtersOfSameType = Object.keys(filterOptionTypes).filter((key) =>
-      filterOptionTypes[key].includes(filter)
-    )[0];
-
-    const newSelectedFilters = [...filters];
-    let changed = false;
-    let ind = 0;
-    for (const f of filters) {
-      if (filterOptionTypes[filtersOfSameType].includes(f)) {
-        newSelectedFilters[ind] = filter;
-        changed = true;
-        break;
-      }
-      ind += 1;
-    }
-    if (!changed) {
-      newSelectedFilters.push(filter);
-    }
-
-    // setSelectedFilters(newSelectedFilters);
-    setFilters(newSelectedFilters);
-    /*
-    setSelectedFilters((prevFilters: string[]) => {
-      return [...prevFilters, filter];
-    });
-    */
+    selectButton(filters, filter, setFilters);
   };
 
   const removeFilter = (filter: string) => {
@@ -53,9 +23,6 @@ export const Filter = ({ filters, setFilters }: Props) => {
       return newFilters;
     });
   };
-
-  console.log("filters : ", filters);
-  console.log(" set filters : ", setFilters);
 
   return (
     <Container>

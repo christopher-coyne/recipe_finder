@@ -2,16 +2,19 @@ import React, { useRef, useState, useContext } from "react";
 import { StyledForm, Error } from "./AddRecipe.style";
 import { Button } from "components/Button";
 import { Recipe } from "../../types";
-import types from "../../FilterOptionTypes";
 import { calcDate } from "../../utilities/dates";
-
 import {
-  selectedRecipeContext,
-  setSelectedRecipeContext,
-} from "../../contexts/ModalContext";
+  foodOptions,
+  difficultyOptions,
+  cuisineOptions,
+  Difficulty,
+  Cuisine,
+  FoodType,
+} from "types/index";
+import { selectButton } from "utilities/selectButton";
+
 import { setModalContext } from "../../contexts/ModalContext";
 import { setRecipeContext } from "../../contexts/RecipesContext";
-import filterTypes from "../../FilterOptionTypes";
 import { ButtonsOptions } from "./components/ButtonsOptions";
 
 export const AddRecipe = () => {
@@ -25,41 +28,17 @@ export const AddRecipe = () => {
 
   const [clickedButtons, setClickedButtons] = useState<string[]>([]);
 
-  const [difficulty, setDifficulty] = useState("");
-  const [cuisine, setCuisine] = useState("");
-  const [type, setType] = useState("");
-
   const [error, setError] = useState(false);
 
-  const handleClick = (buttonType: string) => {
-    const filtersOfSameType = Object.keys(filterTypes).filter((key) =>
-      filterTypes[key].includes(buttonType)
-    )[0];
-
-    const newSelectedFilters: string[] = [...clickedButtons];
-    let changed = false;
-    let ind = 0;
-    for (const f of clickedButtons) {
-      if (filterTypes[filtersOfSameType].includes(f)) {
-        newSelectedFilters[ind] = buttonType;
-        changed = true;
-        break;
-      }
-      ind += 1;
-    }
-    if (!changed) {
-      newSelectedFilters.push(buttonType);
-    }
-
-    console.log("new selected buttons : ", newSelectedFilters);
-
-    // setSelectedFilters(newSelectedFilters);
-    setClickedButtons(newSelectedFilters);
+  const handleClick = (buttonType: Cuisine | Difficulty | FoodType) => {
+    selectButton(clickedButtons, buttonType, setClickedButtons);
   };
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
+    console.log("user name : ");
 
+    // appease typescript in case it is null
     if (
       !userName.current ||
       !instructions.current ||
@@ -69,45 +48,44 @@ export const AddRecipe = () => {
       return;
     }
 
-    // if all fields are filled out, submit the
     if (
-      userName.current.value &&
-      instructions.current.value &&
-      ingredients.current.value &&
-      dishName.current.value &&
-      clickedButtons.length === 3
+      !userName.current.value ||
+      !instructions.current.value ||
+      !ingredients.current.value ||
+      !dishName.current.value
     ) {
-      const newCuisine = clickedButtons.filter((button) =>
-        types.cuisine.includes(button)
-      );
-      const newFood = clickedButtons.filter((button) =>
-        types.food.includes(button)
-      );
-      const newDifficulty = clickedButtons.filter((button) =>
-        types.difficulty.includes(button)
-      );
-      console.log(userName.current.value);
-      const newDate = calcDate();
-      const newRecipe = {
-        name: dishName.current.value,
-        ingredients: ingredients.current.value,
-        instructions: instructions.current.value,
-        difficulty: newDifficulty,
-        cuisine: newCuisine,
-        type: newFood,
-        user: userName.current.value,
-        date: newDate.toString(),
-      };
-      userName.current.value = "";
-      setRecipes((prev: Recipe[]) => {
-        console.log("prev : ", prev);
-        console.log("to add new recipe : ", newRecipe);
-        return [...prev, newRecipe];
-      });
-      setModal("");
-    } else {
       setError(true);
+      return;
     }
+
+    const newCuisine = clickedButtons.filter((button) =>
+      cuisineOptions.includes(button)
+    );
+    const newFood = clickedButtons.filter((button) =>
+      foodOptions.includes(button)
+    );
+    const newDifficulty = clickedButtons.filter((button) =>
+      difficultyOptions.includes(button)
+    );
+    console.log(userName.current.value);
+    const newDate = calcDate();
+    const newRecipe = {
+      name: dishName.current.value,
+      ingredients: ingredients.current.value,
+      instructions: instructions.current.value,
+      difficulty: newDifficulty[0],
+      cuisine: newCuisine[0],
+      type: newFood[0],
+      user: userName.current.value,
+      date: newDate.toString(),
+    };
+    userName.current.value = "";
+    setRecipes((prev: Recipe[]) => {
+      console.log("prev : ", prev);
+      console.log("to add new recipe : ", newRecipe);
+      return [...prev, newRecipe];
+    });
+    setModal("");
 
     // close modal and reset recipes
   };

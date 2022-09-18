@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import types from "../../../../FilterOptionTypes";
 
 export const Container = styled("div")`
   text-align: left;

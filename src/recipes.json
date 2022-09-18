@@ -7,7 +7,7 @@
     "cuisine": "american",
     "type": "desert",
     "user": "sam jones",
-    "date": "05/02/2022"
+    "date": "5/2/2022"
   },
   {
     "name": "meatloaf",
@@ -17,7 +17,7 @@
     "cuisine": "american",
     "type": "entree",
     "user": "alex schwartz",
-    "date": "04/13/2022"
+    "date": "4/13/2022"
   },
   {
     "name": "tiramisu",
@@ -27,6 +27,6 @@
     "cuisine": "italian",
     "type": "desert",
     "user": "mary jones",
-    "date": "02/11/2019"
+    "date": "2/11/2019"
   }
 ]

@@ -12,4 +12,5 @@ export const OpenFilters = styled("button")`
   margin: 1rem 0rem;
   color: ${(props) => props.theme.colors.primary};
   font-weight: ${(props) => props.theme.fontWeights.bold};
+  padding-right: 0.5rem;
 `;

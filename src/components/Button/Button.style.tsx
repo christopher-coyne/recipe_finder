@@ -40,9 +40,3 @@ export const StyledButton = styled("button")<{ buttonType: string }>`
       return "0rem .5rem 0rem 0rem";
   }};
 `;
-
-export const CloseButton = styled("div")`
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  display: inline;
-  margin-right: 0.2rem;
-`;

@@ -1,7 +1,7 @@
 import { Container, OpenFilters } from "./Filter.style";
 import { useState } from "react";
 import { FilterOptions } from "./components/FilterOptions/FilterOptions";
-import { Button } from "../Button/Button";
+import { CloseButton } from "../Button";
 
 import { selectButton } from "utilities/selectButton";
 
@@ -31,12 +31,9 @@ export const Filter = ({ filters, setFilters }: Props) => {
       </OpenFilters>
       {filters.map((filter) => {
         return (
-          <Button
-            onClick={() => removeFilter(filter)}
-            input={filter}
-            type="small"
-            closeable
-          />
+          <CloseButton onClick={() => removeFilter(filter)}>
+            {filter} X
+          </CloseButton>
         );
       })}
       <FilterOptions

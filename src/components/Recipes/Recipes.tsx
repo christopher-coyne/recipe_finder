@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { recipeContext } from "../../contexts/RecipesContext";
 import { RecipeCard } from "./components/RecipeCard";
 import { Recipe } from "../../types";
-import { filtersContext } from "../../contexts/FiltersContext";
 import { RecipesContainer } from "./Recipes.style";
 
 type Props = {
@@ -26,16 +25,18 @@ export const Recipes = ({ filters, searchTerm }: Props) => {
       })
     : recipes;
 
-  /* filter based on searchterm */
+  // filter based on searchterm
   if (searchTerm) {
     filteredRecipes = filteredRecipes.filter((r) =>
       r.name.includes(searchTerm)
     );
   }
+
+  // for simplicity i will assume each recipe has unique name
   return (
     <RecipesContainer>
       {filteredRecipes.map((r) => (
-        <RecipeCard recipe={r} />
+        <RecipeCard recipe={r} key={r.name} />
       ))}
     </RecipesContainer>
   );

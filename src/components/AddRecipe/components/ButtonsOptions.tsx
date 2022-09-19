@@ -15,11 +15,12 @@ export const ButtonsOptions = ({ clickedButtons, handleClick }: Props) => {
     <>
       {filters.map((filter) => {
         return (
-          <Container>
+          <Container key={filter[0]}>
             <label>{capitalize(filter[0])}:</label>
             {filter[1].map((buttonType: string) => {
               return (
                 <Button
+                  key={buttonType}
                   onClick={(e) => {
                     e.preventDefault();
                     handleClick(buttonType);

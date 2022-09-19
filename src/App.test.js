@@ -18,18 +18,18 @@ describe("search", () => {
     const user = userEvent.setup();
     render(<App />);
 
-    const allMeatloafs = screen.getAllByText(/meatloaf/);
+    const allMeatloafs = screen.getAllByText(/Meatloaf/);
     console.log("all meatloafs : ", allMeatloafs);
 
-    expect(screen.getByText(/cookie/)).toBeInTheDocument();
-    expect(screen.getAllByText(/meatloaf/).length).toBeGreaterThan(0);
+    expect(screen.getByText(/Cookie/)).toBeInTheDocument();
+    expect(screen.getAllByText(/Meatloaf/).length).toBeGreaterThan(0);
 
     const mainSearch = screen.getByPlaceholderText(/Search for Recipes/);
-    await user.tripleClick(mainSearch);
+    await user.click(mainSearch);
     await user.keyboard("eat");
 
-    expect(screen.queryByText(/cookie/)).toBeNull();
-    expect(screen.getAllByText(/meatloaf/).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/Cookie/)).toBeNull();
+    expect(screen.getAllByText(/Meatloaf/).length).toBeGreaterThan(0);
   });
 
   it("search term changes upon type", async () => {
@@ -55,8 +55,8 @@ describe("search", () => {
     });
     await user.click(entreeFilter);
 
-    expect(screen.getAllByText(/meatloaf/).length).toBeGreaterThan(0);
-    expect(screen.queryByText(/cookie/)).toBeNull();
+    expect(screen.getAllByText(/Meatloaf/).length).toBeGreaterThan(0);
+    expect(screen.queryByText(/Cookie/)).toBeNull();
 
     await user.click(filterButton);
     const topEntreeFilter = screen.getByRole("button", {
@@ -85,7 +85,7 @@ describe("search", () => {
     });
     expect(closeModalButton).toBeNull();
 
-    const cookieRecipe = screen.queryByText(/chocolate chip cookies/);
+    const cookieRecipe = screen.queryByText(/Cookie/);
     await user.click(cookieRecipe);
 
     closeModalButton = screen.queryByRole("button", {
@@ -93,7 +93,7 @@ describe("search", () => {
     });
     await user.click(closeModalButton);
 
-    expect(closeModalButton).toBeInTheDocument();
+    expect(closeModalButton).not.toBeInTheDocument();
 
     let header = screen.queryByText(/Recipe Finder/);
     expect(header).toBeInTheDocument();
@@ -101,12 +101,10 @@ describe("search", () => {
     user.click(header);
 
     // close modal, see if we can do this later
-    /*
-    closeModalButton = screen.queryByRole("button", {
-      name: /X/,
-    });
-    expect(closeModalButton).toBeNull();
-    */
+    // closeModalButton = screen.queryByRole("button", {
+    //   name: /X/,
+    // });
+    // expect(closeModalButton).toBeNull();
   });
 
   it("add recipe modal", async () => {
@@ -124,21 +122,19 @@ describe("search", () => {
     expect(closeModalButton).toBeNull();
 
     let addRecipeButton = screen.queryByRole("button", {
-      name: /+ Add Recipe/,
+      name: "+ Add Recipe",
     });
     await user.click(addRecipeButton);
 
-    let header = screen.queryByText(/Recipe Finder/);
-    expect(header).toBeInTheDocument();
-    user.click(header);
-    user.click(header);
-
-    // close modal, see if we can do this later
-    /*
+    // let header = screen.queryByText(/Recipe Finder/);
+    // expect(header).toBeInTheDocument();
     closeModalButton = screen.queryByRole("button", {
       name: /X/,
     });
+    // user.click(header);
+    // user.click(closeModalButton);
+
+    // close modal, see if we can do this later
     expect(closeModalButton).toBeNull();
-    */
   });
 });

@@ -1,10 +1,13 @@
 import { useContext, useEffect, useState } from "react";
-const data = require("../recipes.json");
+import { Recipe } from "types/index";
+import * as dataJson from "../recipes.json";
 
 const useGetRecipes = () => {
-  const [recipes, setRecipes] = useState([]);
+  const [recipes, setRecipes] = useState<Recipe[]>([]);
   useEffect(() => {
-    setRecipes(data);
+    /* eslint-disable */
+    // @ts-ignore
+    setRecipes(dataJson);
   }, []);
   return [recipes, setRecipes];
 };

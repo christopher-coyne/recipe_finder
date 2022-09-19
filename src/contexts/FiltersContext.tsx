@@ -1,13 +1,14 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 
 type Props = {
   children: JSX.Element;
 };
 
 /* figure out what to do here */
-export const filtersContext = React.createContext([] as any);
-export const setFiltersContext = React.createContext({} as any);
+export const filtersContext = React.createContext([] as string[]);
+export const setFiltersContext = React.createContext(
+  {} as React.Dispatch<React.SetStateAction<never[]>>
+);
 
 const FiltersContext = ({ children }: Props) => {
   const [filters, setFilters] = useState([]);

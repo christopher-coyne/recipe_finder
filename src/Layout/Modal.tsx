@@ -1,4 +1,3 @@
-import React from "react";
 import ReactDom from "react-dom";
 import { useContext } from "react";
 import { StyledModal, Overlay, CloseIcon } from "./Modal.style";

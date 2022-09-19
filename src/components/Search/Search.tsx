@@ -1,8 +1,8 @@
 import React from "react";
 import { Container } from "./Search.style";
-import { Button } from "../Button/Button";
+import { Button } from "components/Button";
 import { StyledSearch } from "./Search.style";
-import { setModalContext } from "../../contexts/ModalContext";
+import { setModalContext } from "contexts/ModalContext";
 import { useContext } from "react";
 
 type Props = {
@@ -22,11 +22,10 @@ export const Search = ({ setSearchTerm, searchTerm }: Props) => {
         placeholder="Search for Recipes"
         type="text"
       />
-      <Button
-        input={"+ Add Recipe"}
-        onClick={() => setCurrentModal("add")}
-        type="regular"
-      />
+      <Button onClick={() => setCurrentModal("add")} buttonType="regular">
+        {" "}
+        + Add Recipe
+      </Button>
     </Container>
   );
 };

@@ -1,21 +1,10 @@
-import { useState } from "react";
-import {
-  foodOptions,
-  difficultyOptions,
-  cuisineOptions,
-  attributes,
-  Difficulty,
-  Cuisine,
-  FoodType,
-} from "types/index";
+import { attributes } from "types/index";
 import {
   Container,
   OptionContainer,
   TypeName,
   SelectFilter,
 } from "./FilterOptions.style";
-import { Button } from "../../../Button/Button";
-// import types from "../../../../FilterOptionTypes";
 
 type Props = {
   openFilter: boolean;

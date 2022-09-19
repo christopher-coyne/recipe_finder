@@ -1,7 +1,7 @@
 import { NONAME } from "dns";
 import styled from "styled-components";
 
-export const StyledButton = styled("button")<{ buttonType: string }>`
+export const Button = styled("button")<{ buttonType: string }>`
   cursor: pointer;
   background-color: ${(props) => {
     if (props.buttonType === "regular") return `${props.theme.colors.primary}`;

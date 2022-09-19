@@ -1,15 +1,8 @@
-import React from "react";
-// import filterOptions from "FilterOptionTypes";
 import { Button } from "components/Button";
 import { capitalize } from "utilities/capitalize";
 import { Container } from "./ButtonsOptions.style";
 
-import {
-  foodOptions,
-  difficultyOptions,
-  cuisineOptions,
-  attributes,
-} from "types/index";
+import { attributes } from "types/index";
 
 type Props = {
   handleClick: (buttonType: string) => void;
@@ -17,10 +10,6 @@ type Props = {
 };
 
 export const ButtonsOptions = ({ clickedButtons, handleClick }: Props) => {
-  // const filters = Object.keys(filterOptions);
-
-  // console.log("filters ", filters);
-  // const testFilters = ['cuisine', 'food', '']
   const filters = Object.entries(attributes);
   return (
     <>
@@ -31,15 +20,16 @@ export const ButtonsOptions = ({ clickedButtons, handleClick }: Props) => {
             {filter[1].map((buttonType: string) => {
               return (
                 <Button
-                  input={buttonType}
                   onClick={(e) => {
                     e.preventDefault();
                     handleClick(buttonType);
                   }}
-                  type={
+                  buttonType={
                     clickedButtons.includes(buttonType) ? "clicked" : "small"
                   }
-                />
+                >
+                  {buttonType}
+                </Button>
               );
             })}
           </Container>

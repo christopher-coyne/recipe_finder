@@ -1,4 +1,8 @@
-import { foodOptions, difficultyOptions, cuisineOptions } from "types/index";
+import {
+  foodOptions,
+  difficultyOptions,
+  cuisineOptions,
+} from "types/attributes";
 import React from "react";
 export const selectButton = (
   buttons: string[],

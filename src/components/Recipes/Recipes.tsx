@@ -1,7 +1,6 @@
 import { useContext } from "react";
-import { recipeContext } from "../../contexts/RecipesContext";
+import { recipesContext } from "../../contexts/RecipesContext";
 import { RecipeCard } from "./components/RecipeCard";
-import { Recipe } from "../../types";
 import { RecipesContainer } from "./Recipes.style";
 
 type Props = {
@@ -10,7 +9,7 @@ type Props = {
 };
 
 export const Recipes = ({ filters, searchTerm }: Props) => {
-  const recipes: Recipe[] = useContext(recipeContext);
+  const { recipes } = useContext(recipesContext);
   console.log("recipes from recipes : ", recipes);
 
   /* filter based on filters */

@@ -2,7 +2,7 @@ import { Button } from "components/Button";
 import { capitalize } from "utilities/capitalize";
 import { Container } from "./ButtonsOptions.style";
 
-import { attributes } from "types/index";
+import { attributes } from "types/attributes";
 
 type Props = {
   handleClick: (buttonType: string) => void;

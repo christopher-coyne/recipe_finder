@@ -1,4 +1,4 @@
-import { attributes } from "types/index";
+import { attributes } from "types/attributes";
 import {
   Container,
   OptionContainer,

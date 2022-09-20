@@ -1,7 +1,7 @@
 import React, { useRef, useState, useContext } from "react";
 import { StyledForm, Error, ButtonContainer } from "./AddRecipe.style";
 import { Button } from "components/Button";
-import { Recipe } from "types";
+import { Recipe } from "types/recipe";
 import { calcDate } from "../../utilities/dates";
 import {
   foodOptions,
@@ -10,16 +10,16 @@ import {
   Difficulty,
   Cuisine,
   FoodType,
-} from "types/index";
+} from "types/attributes";
 import { selectButton } from "utilities/selectButton";
 
-import { setModalContext } from "../../contexts/ModalContext";
-import { setRecipeContext } from "../../contexts/RecipesContext";
+import { modalContext } from "contexts/ModalContext";
+import { recipesContext } from "contexts/RecipesContext";
 import { ButtonsOptions } from "./components/ButtonsOptions";
 
 export const AddRecipe = () => {
-  const setModal = useContext(setModalContext);
-  const setRecipes = useContext(setRecipeContext);
+  const { setModal } = useContext(modalContext);
+  const { setRecipes, recipes } = useContext(recipesContext);
   /* refs for text input */
   const ingredients = useRef<HTMLTextAreaElement>(null);
   const userName = useRef<HTMLInputElement>(null);
@@ -69,7 +69,7 @@ export const AddRecipe = () => {
     );
     console.log(userName.current.value);
     const newDate = calcDate();
-    const newRecipe = {
+    const newRecipe: Recipe = {
       name: dishName.current.value,
       ingredients: ingredients.current.value,
       instructions: instructions.current.value,
@@ -80,11 +80,7 @@ export const AddRecipe = () => {
       date: newDate.toString(),
     };
     userName.current.value = "";
-    setRecipes((prev: Recipe[]) => {
-      console.log("prev : ", prev);
-      console.log("to add new recipe : ", newRecipe);
-      return [...prev, newRecipe];
-    });
+    setRecipes([...recipes, newRecipe]);
     setModal("");
 
     // close modal and reset recipes

@@ -1,9 +1,7 @@
-import React from "react";
-import { Container } from "./Search.style";
+import React, { useContext } from "react";
+import { Container, StyledSearch } from "./Search.style";
 import { Button } from "components/Button";
-import { StyledSearch } from "./Search.style";
-import { setModalContext } from "contexts/ModalContext";
-import { useContext } from "react";
+import { modalContext } from "contexts/ModalContext";
 
 type Props = {
   setSearchTerm: React.Dispatch<React.SetStateAction<string>>;
@@ -11,7 +9,7 @@ type Props = {
 };
 
 export const Search = ({ setSearchTerm, searchTerm }: Props) => {
-  const setCurrentModal = useContext(setModalContext);
+  const { setModal } = useContext(modalContext);
   return (
     <Container>
       <StyledSearch
@@ -22,7 +20,7 @@ export const Search = ({ setSearchTerm, searchTerm }: Props) => {
         placeholder="Search for Recipes"
         type="text"
       />
-      <Button onClick={() => setCurrentModal("add")} buttonType="regular">
+      <Button onClick={() => setModal("add")} buttonType="regular">
         {" "}
         + Add Recipe
       </Button>

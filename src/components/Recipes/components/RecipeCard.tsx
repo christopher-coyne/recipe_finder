@@ -1,21 +1,16 @@
 import { useContext } from "react";
 
-import { recipeContext } from "../../../contexts/RecipesContext";
 import { BoldText, StyledRecipe, User, Content } from "./RecipeCard.style";
 import { capitalize } from "../../../utilities/capitalize";
-import { Recipe } from "../../../types";
-import {
-  setSelectedRecipeContext,
-  setModalContext,
-} from "../../../contexts/ModalContext";
+import { Recipe } from "types/recipe";
+import { modalContext } from "contexts/ModalContext";
 
 type props = {
   recipe: Recipe;
 };
 
 export const RecipeCard = ({ recipe }: props) => {
-  const setModal = useContext(setModalContext);
-  const setSelectedRecipe = useContext(setSelectedRecipeContext);
+  const { setModal, setSelectedRecipe } = useContext(modalContext);
   const handleModal = () => {
     setModal("recipe");
     setSelectedRecipe(recipe);

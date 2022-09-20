@@ -1,7 +1,7 @@
 import ReactDom from "react-dom";
 import { useContext } from "react";
 import { StyledModal, Overlay, CloseIcon } from "./Modal.style";
-import { modalContext, setModalContext } from "../contexts/ModalContext";
+import { modalContext } from "../contexts/ModalContext";
 
 type Props = {
   type: string;
@@ -9,16 +9,15 @@ type Props = {
 };
 
 export const Modal = ({ type, children }: Props) => {
-  const currentModal = useContext(modalContext);
-  const setCurrentModal = useContext(setModalContext);
-  if (currentModal !== type) {
+  const { modal, setModal } = useContext(modalContext);
+  if (modal !== type) {
     return null;
   }
   return ReactDom.createPortal(
     <>
-      <Overlay onClick={() => setCurrentModal("")} />
+      <Overlay onClick={() => setModal("")} />
       <StyledModal>
-        <CloseIcon onClick={() => setCurrentModal("")}>X</CloseIcon>
+        <CloseIcon onClick={() => setModal("")}>X</CloseIcon>
         {children}
       </StyledModal>
     </>,

@@ -39,29 +39,3 @@ export const ButtonsOptions = ({ clickedButtons, handleClick }: Props) => {
     </>
   );
 };
-
-/*
-<>
-      {filters.map((filter) => {
-        return (
-          <Container>
-            <label>{capitalize(filter)}:</label>
-            {filterOptions[filter].map((buttonType: string) => {
-              return (
-                <Button
-                  input={buttonType}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    handleClick(buttonType);
-                  }}
-                  type={
-                    clickedButtons.includes(buttonType) ? "clicked" : "small"
-                  }
-                />
-              );
-            })}
-          </Container>
-        );
-      })}
-    </>
-    */

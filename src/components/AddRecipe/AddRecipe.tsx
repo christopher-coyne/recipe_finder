@@ -92,14 +92,14 @@ export const AddRecipe = () => {
         handleClick={handleClick}
         clickedButtons={clickedButtons}
       />
-      <label>Dish Name:</label>
-      <input type="text" ref={dishName}></input>
-      <label>Ingredients:</label>
-      <textarea ref={ingredients} />
-      <label>Instructions:</label>
-      <textarea ref={instructions} />
-      <label>Username:</label>
-      <input type="text" ref={userName}></input>
+      <label htmlFor="dishName">Dish Name:</label>
+      <input type="text" ref={dishName} id="dishName"></input>
+      <label htmlFor="ingredients">Ingredients:</label>
+      <textarea ref={ingredients} id="ingredients" />
+      <label htmlFor="instructions">Instructions:</label>
+      <textarea ref={instructions} id="instructions" />
+      <label htmlFor="username">Username:</label>
+      <input type="text" ref={userName} id="username"></input>
       {error && <Error>Please fill out all fields before submitting</Error>}
       <ButtonContainer>
         <Button onClick={(e) => handleSubmit(e)} buttonType="regular">

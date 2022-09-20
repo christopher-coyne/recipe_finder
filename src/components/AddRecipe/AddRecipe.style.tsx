@@ -7,7 +7,7 @@ export const StyledForm = styled("form")`
   & h1 {
     font-size: ${({ theme }) => theme.fontSizes.large};
     font-weight: ${({ theme }) => theme.fontWeights.semiBold};
-    color: ${(props) => props.theme.colors.primary};
+    color: ${({ theme }) => theme.colors.primary};
   }
 
   & label {

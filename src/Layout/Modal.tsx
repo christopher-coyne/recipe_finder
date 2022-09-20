@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-non-null-assertion*/
+
 import ReactDom from "react-dom";
 import { useContext } from "react";
 import { StyledModal, Overlay, CloseIcon } from "./Modal.style";

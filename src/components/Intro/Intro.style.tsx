@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../colors";
 
 export const IntroWrapper = styled("article")`
   margin: auto;

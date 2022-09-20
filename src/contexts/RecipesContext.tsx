@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Recipe } from "types/recipe";
 import dataJson from "../recipes.json";
 

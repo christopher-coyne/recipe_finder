@@ -20,10 +20,11 @@ export const FilterOptions = ({ openFilter, addFilter, filters }: Props) => {
         <Container>
           {allFilters.map((filter) => {
             return (
-              <OptionContainer>
+              <OptionContainer key={filter[0]}>
                 <TypeName> {filter[0]}</TypeName>
                 {filter[1].map((buttonType: string) => (
                   <SelectFilter
+                    key={buttonType}
                     onClick={() => addFilter(buttonType)}
                     buttonType={
                       filters.includes(buttonType) ? "clicked" : "unClicked"

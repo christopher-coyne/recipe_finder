@@ -1,6 +1,5 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
 import { StyledRecipe, Tags, BoldSpan, BottomText } from "./FullRecipe.style";
-import { Recipe } from "../../types";
 
 import { modalContext } from "contexts/ModalContext";
 

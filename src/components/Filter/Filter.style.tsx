@@ -8,9 +8,9 @@ export const OpenFilters = styled("button")`
   background-color: white;
   cursor: pointer;
   border: none;
-  font-size: ${(props) => props.theme.fontSizes.large};
+  font-size: ${({ theme }) => theme.fontSizes.large};
   margin: 1rem 0rem;
-  color: ${(props) => props.theme.colors.primary};
-  font-weight: ${(props) => props.theme.fontWeights.bold};
+  color: ${({ theme }) => theme.colors.primary};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   padding-right: 0.5rem;
 `;

@@ -23,8 +23,8 @@ export const CloseIcon = styled("button")`
   background-color: ${({ theme }) => theme.colors.primary};
   cursor: pointer;
   color: white;
-  font-weight: ${(props) => props.theme.fontWeights.bold};
-  font-size: ${(props) => props.theme.fontSizes.medium};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+  font-size: ${({ theme }) => theme.fontSizes.medium};
   padding: 1rem;
   border-radius: 100%;
   width: 50px;

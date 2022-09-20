@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../colors";
 
 export const Container = styled("div")`
   display: flex;
@@ -7,7 +6,7 @@ export const Container = styled("div")`
 `;
 
 export const StyledSearch = styled("input")`
-  border: 2px solid ${(props) => props.theme.colors.primary};
+  border: 2px solid ${({ theme }) => theme.colors.primary};
   padding: 0.5rem;
   flex-grow: 1;
   margin-right: 1rem;

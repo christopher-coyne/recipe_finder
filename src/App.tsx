@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import "./App.css";
 import { ThemeProvider } from "styled-components";
 import { Home } from "./screens/Home";
@@ -7,7 +6,7 @@ import { Modal } from "layout/Modal";
 import ModalContext from "contexts/ModalContext";
 import { FullRecipe } from "components/FullRecipe";
 import { AddRecipe } from "components/AddRecipe";
-import { theme } from "./styles/theme";
+import { theme } from "styles/theme";
 
 function App() {
   return (

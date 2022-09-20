@@ -1,14 +1,12 @@
-import { NONAME } from "dns";
 import styled from "styled-components";
 
 export const Button = styled("button")<{ buttonType: string }>`
   cursor: pointer;
-  background-color: ${(props) => {
-    if (props.buttonType === "regular") return `${props.theme.colors.primary}`;
-    if (props.buttonType === "cancel") return `${props.theme.colors.cancel}`;
-    if (props.buttonType === "clicked")
-      return `${props.theme.colors.secondary}`;
-    if (props.buttonType === "small") return `white`;
+  background-color: ${({ buttonType, theme }) => {
+    if (buttonType === "regular") return `${theme.colors.primary}`;
+    if (buttonType === "cancel") return `${theme.colors.cancel}`;
+    if (buttonType === "clicked") return `${theme.colors.secondary}`;
+    if (buttonType === "small") return "white";
   }};
   padding: ${(props) => {
     if (props.buttonType === "regular" || props.buttonType === "cancel")
@@ -16,27 +14,27 @@ export const Button = styled("button")<{ buttonType: string }>`
     if (props.buttonType === "small" || props.buttonType === "clicked")
       return ".3rem 1rem";
   }};
-  border: ${(props) => {
-    if (props.buttonType === "small" || props.buttonType === "clicked")
-      return `2px solid ${props.theme.colors.secondary}`;
+  border: ${({ theme, buttonType }) => {
+    if (buttonType === "small" || buttonType === "clicked")
+      return `2px solid ${theme.colors.secondary}`;
     return "none";
   }};
   border-radius: 0.6rem;
-  color: ${(props) => {
+  color: ${({ buttonType, theme }) => {
     if (
-      props.buttonType === "regular" ||
-      props.buttonType === "clicked" ||
-      props.buttonType === "cancel"
+      buttonType === "regular" ||
+      buttonType === "clicked" ||
+      buttonType === "cancel"
     )
       return "white";
-    if (props.buttonType === "small") return props.theme.colors.secondary;
+    if (buttonType === "small") return theme.colors.secondary;
   }};
-  font-size: ${(props) => props.theme.fontSizes.medium};
-  font-weight: ${(props) => {
-    if (props.buttonType === "small") return props.theme.fontSizes.medium;
+  font-size: ${({ theme }) => theme.fontSizes.medium};
+  font-weight: ${({ buttonType, theme }) => {
+    if (buttonType === "small") return theme.fontSizes.medium;
   }};
-  margin: ${(props) => {
-    if (props.buttonType === "small" || props.buttonType === "clicked")
+  margin: ${({ buttonType }) => {
+    if (buttonType === "small" || buttonType === "clicked")
       return "0rem .5rem 0rem 0rem";
   }};
 `;

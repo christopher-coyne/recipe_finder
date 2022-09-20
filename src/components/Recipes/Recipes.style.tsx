@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { colors } from "../../colors";
 import { tablet } from "styles/media";
 
 export const RecipesContainer = styled("div")`

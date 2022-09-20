@@ -13,7 +13,7 @@ export const Search = ({ setSearchTerm, searchTerm }: Props) => {
   return (
     <Container>
       <StyledSearch
-        onChange={(e: any) => {
+        onChange={(e) => {
           setSearchTerm(e.target.value);
         }}
         value={searchTerm}

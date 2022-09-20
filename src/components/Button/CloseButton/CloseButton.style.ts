@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const CloseButton = styled("button")`
-  font-weight: ${(props) => props.theme.fontWeights.bold};
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   background-color: transparent;
   color: ${({ theme }) => theme.colors.secondary};
   display: inline;

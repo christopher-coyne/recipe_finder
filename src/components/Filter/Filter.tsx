@@ -31,7 +31,7 @@ export const Filter = ({ filters, setFilters }: Props) => {
       </OpenFilters>
       {filters.map((filter) => {
         return (
-          <CloseButton onClick={() => removeFilter(filter)}>
+          <CloseButton onClick={() => removeFilter(filter)} key={filter}>
             {filter} X
           </CloseButton>
         );

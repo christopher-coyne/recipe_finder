@@ -9,7 +9,6 @@ export const selectButton = (
   button: string,
   setButtons: React.Dispatch<React.SetStateAction<string[]>>
 ) => {
-  console.log("adding filter...");
   const filtersOfSameType = cuisineOptions.includes(button)
     ? cuisineOptions
     : foodOptions.includes(button)
@@ -29,8 +28,6 @@ export const selectButton = (
   if (!changed) {
     newSelectedFilters.push(button);
   }
-
-  console.log("new selected buttons : ", newSelectedFilters);
 
   setButtons(newSelectedFilters);
 };

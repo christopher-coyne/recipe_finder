@@ -1,6 +1,6 @@
 import "./App.css";
 import { ThemeProvider } from "styled-components";
-import { Home } from "./screens/Home";
+import { Home } from "screens/Home";
 import RecipesContext from "contexts/RecipesContext";
 import { Modal } from "layout/Modal";
 import ModalContext from "contexts/ModalContext";

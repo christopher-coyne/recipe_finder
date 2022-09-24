@@ -11,13 +11,8 @@ export const recipesContext = React.createContext({
   recipes: dataJson as Recipe[],
 });
 
-/* figure out what to do here */
-// export const recipeContext = React.createContext({} as any);
-// export const setRecipeContext = React.createContext({} as any);
-
 const RecipesContext = ({ children }: Props) => {
   // const [recipes, setRecipes] = useState<Recipe[]>([]);
-  console.log("importing dataJSON: ", dataJson);
   const [recipes, setRecipes] = useState<Recipe[]>(dataJson);
   return (
     <recipesContext.Provider value={{ recipes, setRecipes }}>

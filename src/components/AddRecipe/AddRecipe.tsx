@@ -36,7 +36,6 @@ export const AddRecipe = () => {
 
   const handleSubmit = (e: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     e.preventDefault();
-    console.log("user name : ");
 
     // appease typescript in case it is null
     if (
@@ -67,7 +66,6 @@ export const AddRecipe = () => {
     const newDifficulty = clickedButtons.filter((button) =>
       difficultyOptions.includes(button)
     );
-    console.log(userName.current.value);
     const newDate = calcDate();
     const newRecipe: Recipe = {
       name: dishName.current.value,

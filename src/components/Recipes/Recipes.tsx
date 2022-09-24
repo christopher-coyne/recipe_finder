@@ -10,7 +10,6 @@ type Props = {
 
 export const Recipes = ({ filters, searchTerm }: Props) => {
   const { recipes } = useContext(recipesContext);
-  console.log("recipes from recipes : ", recipes);
 
   /* filter based on filters */
   let filteredRecipes = filters.length

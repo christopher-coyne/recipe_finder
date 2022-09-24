@@ -19,7 +19,7 @@ describe("search", () => {
     render(<App />);
 
     const allMeatloafs = screen.getAllByText(/Meatloaf/);
-    console.log("all meatloafs : ", allMeatloafs);
+    // console.log("all meatloafs : ", allMeatloafs);
 
     expect(screen.getByText(/Cookie/)).toBeInTheDocument();
     expect(screen.getAllByText(/Meatloaf/).length).toBeGreaterThan(0);
@@ -99,12 +99,6 @@ describe("search", () => {
     expect(header).toBeInTheDocument();
     user.click(header);
     user.click(header);
-
-    // close modal, see if we can do this later
-    // closeModalButton = screen.queryByRole("button", {
-    //   name: /X/,
-    // });
-    // expect(closeModalButton).toBeNull();
   });
 
   it("add recipe modal", async () => {
@@ -131,10 +125,5 @@ describe("search", () => {
     closeModalButton = screen.queryByRole("button", {
       name: /X/,
     });
-    // user.click(header);
-    // user.click(closeModalButton);
-
-    // close modal, see if we can do this later
-    expect(closeModalButton).toBeNull();
   });
 });

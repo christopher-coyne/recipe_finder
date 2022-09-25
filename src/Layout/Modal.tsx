@@ -3,7 +3,7 @@
 import ReactDom from "react-dom";
 import { useContext } from "react";
 import { StyledModal, Overlay, CloseIcon } from "./Modal.style";
-import { modalContext } from "../contexts/ModalContext";
+import { modalContext } from "contexts/ModalContext";
 
 type Props = {
   type: string;

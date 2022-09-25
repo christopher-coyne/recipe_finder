@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { recipesContext } from "../../contexts/RecipesContext";
+import { recipesContext } from "contexts/RecipesContext";
 import { RecipeCard } from "./components/RecipeCard";
 import { RecipesContainer } from "./Recipes.style";
 

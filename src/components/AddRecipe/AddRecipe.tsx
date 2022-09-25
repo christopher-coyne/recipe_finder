@@ -2,7 +2,7 @@ import React, { useRef, useState, useContext } from "react";
 import { StyledForm, Error, ButtonContainer } from "./AddRecipe.style";
 import { Button } from "components/Button";
 import { Recipe } from "types/recipe";
-import { calcDate } from "../../utilities/dates";
+import { calcDate } from "utilities/dates";
 import {
   foodOptions,
   difficultyOptions,

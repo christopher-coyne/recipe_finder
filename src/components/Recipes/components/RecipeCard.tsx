@@ -1,7 +1,7 @@
 import { useContext } from "react";
 
 import { BoldText, StyledRecipe, User, Content } from "./RecipeCard.style";
-import { capitalize } from "../../../utilities/capitalize";
+import { capitalize } from "utilities/capitalize";
 import { Recipe } from "types/recipe";
 import { modalContext } from "contexts/ModalContext";
 

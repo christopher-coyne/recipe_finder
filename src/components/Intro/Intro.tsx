@@ -1,4 +1,3 @@
-import React from "react";
 import { IntroWrapper } from "./Intro.style";
 
 export const Intro = () => {

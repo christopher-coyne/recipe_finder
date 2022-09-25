@@ -1,7 +1,7 @@
 import { Container, OpenFilters } from "./Filter.style";
 import { useState } from "react";
-import { FilterOptions } from "./components/FilterOptions/FilterOptions";
-import { CloseButton } from "../Button";
+import { FilterOptions } from "./components/FilterOptions";
+import { CloseButton } from "components/Button";
 
 import { selectButton } from "utilities/selectButton";
 

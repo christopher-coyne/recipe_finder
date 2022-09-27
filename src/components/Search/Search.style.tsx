@@ -1,8 +1,16 @@
 import styled from "styled-components";
+import { mobile } from "styles/media";
 
 export const Container = styled("div")`
   display: flex;
   justify-content: space-between;
+
+  ${mobile(`
+  flex-direction: column;
+  gap: .5rem;
+  justify-content: flex-start;
+  margin: .5rem 0rem;
+  `)}
 `;
 
 export const StyledSearch = styled("input")`

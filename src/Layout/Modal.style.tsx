@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { tablet } from "styles/media";
 
 export const StyledModal = styled("div")`
   position: fixed;
@@ -9,10 +10,11 @@ export const StyledModal = styled("div")`
   padding: 40px;
   z-index: 2;
   border-radius: 1rem;
-  width: 500px;
   max-height: 400px;
   overflow-y: scroll;
   border: 3px solid blue;
+  ${tablet("width: 70%;")}
+  width: 450px;
 `;
 
 export const CloseIcon = styled("button")`

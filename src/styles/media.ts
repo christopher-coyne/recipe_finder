@@ -13,3 +13,11 @@ export const tablet = (content: string) => {
       }
     `;
 };
+
+export const desktop = (content: string) => {
+  return `
+    @media screen and (min-width: 700px) {
+        ${content}
+      }
+    `;
+};

@@ -37,4 +37,5 @@ export const Button = styled("button")<{ buttonType: string }>`
     if (buttonType === "small" || buttonType === "clicked")
       return "0rem .5rem 0rem 0rem";
   }};
+  align-self: flex-start;
 `;
